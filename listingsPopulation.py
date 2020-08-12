@@ -7,7 +7,7 @@ listings = pd.DataFrame(columns = columns)
 url = "https://realtor.p.rapidapi.com/properties/v2/list-for-sale"
 headers = {
     'x-rapidapi-host': "realtor.p.rapidapi.com",
-    'x-rapidapi-key': "8ffa450eeemshbd43b7f91957686p1c51b1jsnfa082b02c3c6"
+    'x-rapidapi-key': "SECRET"
     }
 
 for city in cities:
@@ -23,4 +23,4 @@ listings = listings[listings["Type"] != "mobile"]
 listings = listings[listings["Type"] != "single_family"]
 listings = listings.drop(["Type"], axis = 1)
 listings = listings.set_index("URL")
-listings.to_csv("C:/Users/micha/Documents/Python/Real Estate/Condos, Townhomes, Homes/realestaterating/listings.csv")
+listings.to_csv("SAVE LOCATION OF listings.csv")
