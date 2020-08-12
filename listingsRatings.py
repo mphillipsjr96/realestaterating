@@ -4,7 +4,7 @@ from sklearn.svm import SVR
 import numpy as np
 
 #Training Data
-listings = pd.read_csv("C:/Users/micha/Documents/Python/Real Estate/Condos, Townhomes, Homes/realestaterating/listingsTrained.csv")
+listings = pd.read_csv("SAVE LOCATION OF listingsTrained.csv")
 listings = listings.set_index("URL")
 columns = ["City", "Price", "Beds", "Baths", "Ratings"]
 listings = listings[columns]
@@ -16,7 +16,7 @@ listingsTrainY = listings["Ratings"]
 listingsTrainX = listings.drop("Ratings",axis = 1)
 
 #Testing Data
-listingsTest = pd.read_csv("C:/Users/micha/Documents/Python/Real Estate/Condos, Townhomes, Homes/realestaterating/listings.csv")
+listingsTest = pd.read_csv("SAVE LOCATION OF listings.csv")
 listingsTest = listingsTest.set_index("URL")
 addressSeries = listingsTest["Address"]
 listingsTest = listingsTest[["City", "Price", "Beds", "Baths"]]
@@ -36,4 +36,4 @@ print(model.coef_)
 listingsTest = listingsTest.join(citySeries, how = "outer")
 listingsTest = listingsTest.join(addressSeries, how = "outer")
 listingsTest = listingsTest[["Address", "City","Price", "Beds", "Baths", "Ratings"]]
-listingsTest.to_csv("C:/Users/micha/Documents/Python/Real Estate/Condos, Townhomes, Homes/realestaterating/listingsRated.csv")
+listingsTest.to_csv("SAVE LOCATION OF listingsRated.csv")
